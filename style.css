@@ -340,3 +340,16 @@ p{ margin:0 0 1em; }
 }
 .back-top.visible{ opacity:1; pointer-events:auto; }
 .back-top:hover{ transform:translateY(-3px); }
+
+/* CARD COMPONENT */
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden;
+  transition:border-color .2s, box-shadow .2s;
+}
+.card:hover{ border-color:var(--cyan-400); box-shadow:0 4px 12px rgba(23,195,214,.12); }
+.card-media{ height:120px; background:#f0f2f5; }
+.card-body{ padding:20px; }
+.card-body h3{ font-size:1.1rem; margin:0 0 10px; color:var(--navy-900); }
+.card-body p{ margin:8px 0; font-size:.95rem; color:var(--steel-700); }
+.card-body a{ color:var(--cyan-400); text-decoration:none; font-weight:600; }
+.card-body a:hover{ text-decoration:underline; }
