@@ -1,0 +1,27 @@
+=== INSTRUCCIONES PARA AGREGAR HOVER STATES ===
+
+OPCIÓN A (Recomendada): Agregar al final del style.css existente
+
+1. En GitHub, abre el archivo "style.css"
+2. Haz clic en el lápiz (Edit)
+3. Scrollea hasta el final del archivo
+4. Copia todo el contenido de "style-hover-improvements.css" (el archivo en este ZIP)
+5. Pégalo al final de style.css
+6. Commit changes
+
+OPCIÓN B (Si la Opción A no funciona): Reemplazar completamente
+
+1. En GitHub, sube el archivo "style.css" (si lo tienes actualizado con todo)
+2. Reemplaza el existente
+
+Los cambios incluyen:
+- Links con underline y color cyan al pasar el mouse
+- Botones con elevación (transform) y shadow
+- Tarjetas con transform y shadow mejorados
+- Email de contacto con border-bottom y color
+- Inputs con focus mejorado
+- Back-to-top button con hover effect
+- Breadcrumbs con hover
+- Botones primarios y secundarios con mejores efectos
+
+Efectos suaves con transiciones de 0.2s a 0.3s - no es agresivo, es profesional.

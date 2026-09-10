@@ -1,0 +1,142 @@
+/* IMPROVED HOVER STATES */
+
+/* Links - más evidentes y suaves */
+a:not(.btn):not(.card-link):not(.skip-link):not([class*="nav"]):not([class*="brand"]) {
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:not(.btn):not(.card-link):not(.skip-link):not([class*="nav"]):not([class*="brand"]):hover {
+  text-decoration: underline;
+  color: var(--cyan-400);
+}
+
+/* Navegación links */
+.main-nav a {
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+.main-nav a:hover {
+  color: var(--cyan-400);
+  border-bottom-color: var(--cyan-400);
+}
+
+/* Botones - más dinámicos */
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(23, 195, 214, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #15b0c5;
+  box-shadow: 0 8px 20px rgba(23, 195, 214, 0.3);
+}
+
+.btn-dark:hover {
+  background-color: #06121f;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline:hover {
+  border-color: var(--cyan-400);
+  color: var(--cyan-400);
+  background-color: rgba(23, 195, 214, 0.05);
+  box-shadow: 0 4px 12px rgba(23, 195, 214, 0.15);
+}
+
+/* Tarjetas */
+.card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: var(--cyan-400);
+  box-shadow: 0 12px 24px rgba(23, 195, 214, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Card links dentro de tarjetas */
+.card-link {
+  transition: color 0.2s ease, gap 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--navy-900);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: var(--cyan-400);
+  gap: 8px;
+}
+
+.card-link .arrow {
+  transition: transform 0.2s ease;
+}
+
+.card-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Email de contacto en footer */
+.footer-email {
+  transition: all 0.2s ease;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.footer-email:hover {
+  color: var(--cyan-400);
+  border-bottom-color: var(--cyan-400);
+}
+
+/* Contact email destacado */
+.contact-email {
+  transition: all 0.2s ease;
+}
+
+.contact-email:hover {
+  background: rgba(23, 195, 214, 0.1);
+  border-color: var(--cyan-400);
+  color: var(--cyan-400);
+  box-shadow: 0 4px 12px rgba(23, 195, 214, 0.2);
+}
+
+/* Inputs y selects */
+input, textarea, select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--cyan-400);
+  box-shadow: 0 0 0 3px rgba(23, 195, 214, 0.1);
+  outline: none;
+}
+
+/* Back to top button */
+.back-top {
+  transition: all 0.3s ease;
+}
+
+.back-top:hover {
+  background-color: var(--cyan-400);
+  color: var(--navy-900);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(23, 195, 214, 0.3);
+}
+
+/* Breadcrumbs links */
+.breadcrumbs a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: var(--cyan-400);
+  opacity: 1;
+}
