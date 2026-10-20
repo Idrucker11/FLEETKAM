@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Product catalog filter (Productos page)
+  // Product catalog filter (Productos page, if present)
   var filterBar = document.querySelector('[data-filter-bar]');
   if (filterBar) {
     var buttons = filterBar.querySelectorAll('button');
@@ -47,9 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Contact form: client-side validation + simulated states.
-  // No backend/CRM has been provided in the source material, so
-  // submission is intentionally not wired to any endpoint.
+  // Contact form: client-side validation + envío real a Formspree
   var form = document.getElementById('contact-form');
   if (form) {
     var status = document.getElementById('form-status');
@@ -92,23 +90,41 @@ document.addEventListener('DOMContentLoaded', function () {
       return valid;
     }
 
+    function showStatus(text, ok) {
+      if (!status) return;
+      status.className = 'form-status visible';
+      status.style.background = ok ? '#e8f7ee' : '#fdeceb';
+      status.style.color = ok ? '#1c6b3a' : '#a02f2f';
+      status.textContent = text;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!validate()) {
-        status.className = 'form-status visible';
-        status.style.background = '#fdeceb';
-        status.style.color = '#a02f2f';
-        status.textContent = 'Revisá los campos marcados antes de continuar.';
+        showStatus('Revisá los campos marcados antes de continuar.', false);
         return;
       }
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando…';
-      status.className = 'form-status visible pending';
-      status.textContent = 'El envío del formulario todavía no está conectado a un sistema de destino (dato pendiente de definición). Tu consulta no fue transmitida.';
-      window.setTimeout(function () {
+      showStatus('Enviando tu consulta…', true);
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (res) {
+        if (res.ok) {
+          form.reset();
+          showStatus('Tu consulta fue enviada correctamente.', true);
+        } else {
+          showStatus('No pudimos enviar tu consulta. Intentá nuevamente.', false);
+        }
+      }).catch(function () {
+        showStatus('No pudimos enviar tu consulta. Intentá nuevamente.', false);
+      }).then(function () {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Enviar consulta';
-      }, 900);
+      });
     });
 
     form.querySelectorAll('input, select, textarea').forEach(function (el) {
